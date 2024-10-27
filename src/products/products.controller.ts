@@ -7,10 +7,13 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { Prisma, Product } from '@prisma/client';
 import { ProductsService } from './products.service';
+import { AuthGuard } from 'src/auth/auth.guard';
 
+// @UseGuards(AuthGuard)
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productService: ProductsService) {}
